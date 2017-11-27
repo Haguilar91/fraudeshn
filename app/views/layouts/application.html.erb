@@ -9,6 +9,14 @@
   </head>
 
   <body>
+      <div class="alert alert-info" role="alert">
+      <% if current_user %>
+        Hola!!!! <b><%=current_user.email%><b> &nbsp; &nbsp;
+            <%= link_to '<b>Salir</b>'.html_safe, destroy_user_session_path, :method => :delete %>
+      <%else%>
+      Visita, bienvenido.
+      <%end%>
+    </div>
     <%= yield %>
   </body>
 </html>
