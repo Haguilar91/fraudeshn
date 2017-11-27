@@ -1,6 +1,6 @@
 class FraudesController < ApplicationController
   before_action :set_fraude, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, :except => [:index]
   # GET /fraudes
   # GET /fraudes.json
   def index
@@ -13,20 +13,19 @@ class FraudesController < ApplicationController
   end
 
   # GET /fraudes/new
-  def new
-    before_action :authenticate_user!    
+  def new  
+
     @fraude = Fraude.new
   end
 
   # GET /fraudes/1/edit
   def edit
-    before_action :authenticate_user!    
+      
   end
 
   # POST /fraudes
   # POST /fraudes.json
   def create
-    before_action :authenticate_user!    
     @fraude = Fraude.new(fraude_params)
 
     respond_to do |format|
@@ -43,7 +42,7 @@ class FraudesController < ApplicationController
   # PATCH/PUT /fraudes/1
   # PATCH/PUT /fraudes/1.json
   def update
-    before_action :authenticate_user!    
+       
     respond_to do |format|
       if @fraude.update(fraude_params)
         format.html { redirect_to @fraude, notice: 'Fraude was successfully updated.' }
@@ -58,7 +57,7 @@ class FraudesController < ApplicationController
   # DELETE /fraudes/1
   # DELETE /fraudes/1.json
   def destroy
-    before_action :authenticate_user!    
+    
     @fraude.destroy
     respond_to do |format|
       format.html { redirect_to fraudes_url, notice: 'Fraude was successfully destroyed.' }
