@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fraudes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Donde</th>
+      <th>Descripcion</th>
+      <th>Links</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fraudes.each do |fraude| %>
+      <tr>
+        <td><%= fraude.titulo %></td>
+        <td><%= fraude.donde %></td>
+        <td><%= fraude.descripcion %></td>
+        <td><%= fraude.links %></td>
+        <td><%= link_to 'Show', fraude %></td>
+        <td><%= link_to 'Edit', edit_fraude_path(fraude) %></td>
+        <td><%= link_to 'Destroy', fraude, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fraude', new_fraude_path %>

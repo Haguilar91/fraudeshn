@@ -1,0 +1,37 @@
+<%= form_with(model: fraude, local: true) do |form| %>
+  <% if fraude.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fraude.errors.count, "error") %> prohibited this fraude from being saved:</h2>
+
+      <ul>
+      <% fraude.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :titulo %>
+    <%= form.text_field :titulo, id: :fraude_titulo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :donde %>
+    <%= form.text_field :donde, id: :fraude_donde %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, id: :fraude_descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :links %>
+    <%= form.text_area :links, id: :fraude_links %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

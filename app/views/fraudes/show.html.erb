@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @fraude.titulo %>
+</p>
+
+<p>
+  <strong>Donde:</strong>
+  <%= @fraude.donde %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @fraude.descripcion %>
+</p>
+
+<p>
+  <strong>Links:</strong>
+  <%= @fraude.links %>
+</p>
+
+<%= link_to 'Edit', edit_fraude_path(@fraude) %> |
+<%= link_to 'Back', fraudes_path %>
