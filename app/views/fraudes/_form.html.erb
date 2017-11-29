@@ -11,27 +11,33 @@
     </div>
   <% end %>
 
+
+    <div class="form-group">
+
   <div class="field">
     <%= form.label :titulo %>
-    <%= form.text_field :titulo, id: :fraude_titulo %>
+    <%= form.text_field :titulo, id: :fraude_titulo, class: "form-control"%>
   </div>
 
   <div class="field">
     <%= form.label :donde %>
-    <%= form.text_field :donde, id: :fraude_donde %>
+    <%= form.text_field :donde, id: :fraude_donde, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :descripcion %>
-    <%= form.text_area :descripcion, id: :fraude_descripcion %>
+    <%= form.text_area :descripcion, id: :fraude_descripcion, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :links %>
-    <%= form.text_area :links, id: :fraude_links %>
+    <%= form.text_area :links, id: :fraude_links, class: "form-control" %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
+
+</div>
 <% end %>
