@@ -1,26 +1,34 @@
-<h2>Log in</h2>
+
+<div class="container">
+    <div class="jumbotron">
+      <h1>Inicia Sesion en Fraudeshn</h1>
+      <p>Esta pagina es para poner irregularidades en esta eleccion, no casos de violencia o similares.
+      </p>
+      <p>Manda informacion o consultas a: fraudeshn@protonmail.com</p>
+    </div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label "Correo Electronico" %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label "Contraseña" %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label "Recordar?" %>
     </div>
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Inicia Sesion" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<a class="btn btn-primary" href="/users/sign_up">Registrarse</a>
+</div>

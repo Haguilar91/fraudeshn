@@ -1,24 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Titulo:</strong>
-  <%= @fraude.titulo %>
-</p>
 
-<p>
-  <strong>Donde:</strong>
-  <%= @fraude.donde %>
-</p>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @fraude.descripcion %>
-</p>
+<div class="container">
+    <div class="jumbotron">
+        <p>
+            <strong>Titulo:</strong>
+            <%= @fraude.titulo %>
+          </p>
+          
+          <p>
+            <strong>Donde:</strong>
+            <%= @fraude.donde %>
+          </p>
+          
+          <p>
+            <strong>Descripcion:</strong>
+            <%= @fraude.descripcion %>
+          </p>
+          
+          <p>
+            <strong>Links:</strong>
+            <a href="<%= @fraude.links %>"><%= @fraude.links %></a>
+          </p>
+          <% if current_user%>
+          <% if current_user.moderador%>
+          <%= link_to 'Editar', edit_fraude_path(@fraude) %> |
+          <%end%>
+          <%end%>
+          <%= link_to 'Regresar', fraudes_path %>
+    
+    </div>
+</div>
 
-<p>
-  <strong>Links:</strong>
-  <%= @fraude.links %>
-</p>
 
-<%= link_to 'Edit', edit_fraude_path(@fraude) %> |
-<%= link_to 'Back', fraudes_path %>

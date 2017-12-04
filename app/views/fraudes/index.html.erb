@@ -21,7 +21,7 @@
         <th>Donde</th>
         <th>Descripcion</th>
         <th>Links</th>
-        <th colspan="4"></th>
+        <th colspan="6"></th>
       </tr>
     </thead>
 
@@ -32,8 +32,16 @@
           <td><%= fraude.donde %></td>
           <td><%= fraude.descripcion %></td>
           <td><a href="<%= fraude.links %>"><%= fraude.links %></a></td>
-          <td><%= link_to 'Ver mas', fraude, class: "btn btn-info" %></td>
-
+          <td><%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>
+            '.html_safe, fraude, class: "btn btn-info" %></td>
+          <% if current_user%>
+          <% if current_user.moderador %>
+          <td><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>
+            '.html_safe, edit_fraude_path(fraude), class: "btn btn-success" %></td>
+          <td><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
+            '.html_safe, fraude, method: :delete, data: { confirm: 'Quieres eliminar este fraude?' }, class: "btn btn-danger" %></td>
+          <%end%>
+          <%end%>
         </tr>
       <% end %>
     </tbody>

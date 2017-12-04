@@ -5,18 +5,25 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <script src="https://use.fontawesome.com/de332ab5ef.js"></script>
+
   </head>
 
   <body>
       <div class="alert alert-info" role="alert">
       <% if current_user %>
-        Hola!!!! <b><%=current_user.email%><b> &nbsp; &nbsp;
-            <%= link_to '<b>Salir</b>'.html_safe, destroy_user_session_path, :method => :delete %>
+        Hola! <b><%=current_user.email%><b> &nbsp; &nbsp;
+            <a class="btn btn-dark" href="/users/edit"><i class="fa fa-cog" aria-hidden="true"></i></a>
+          <%if current_user.moderador%>
+          MODO MODERADOR&nbsp;<i class="fa fa-shield" aria-hidden="true"></i>
+          <%end%>
+            <%= link_to '<i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Salir'.html_safe, destroy_user_session_path, :method => :delete, class: "btn btn-danger" %>
+            
       <%else%>
-      Visita, bienvenido.
+      Sabes de algun  fraude electoral? <a class="btn btn-light" href="/users/sign_up">Crea tu cuenta!</a> o <a class="btn btn-light" href="/users/sign_in">Inicia sesion!</a>
       <%end%>
     </div>
     <%= yield %>
